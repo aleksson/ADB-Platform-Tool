@@ -45,16 +45,27 @@ expected output:
 
 ### Verify applied DNS settings
 Open any browser on TV and visit :
-> https://dnsleaktest.com/
+> https://dnsleaktest.com/ (extended test)
 or
 > https://browserleaks.com/dns
 verify that <b>AdGuard DNS shows up and not ISP's DNS servers</b>
+
+> https://ipleak.net/
+Shows your public IP ans DNS Servers.
 
 
 ### Verify with ADB
 > `adb shell dumpsys netd` and `adb shell dumpsys connectivity`
 
 if you see `validated=true` for `dns.adguard-dns.com` the encrypted DoT connection is active
+
+
+## DNS Server Providers
+- Cloudflare DoT (one.one.one.one) AS13335
+- NextDNS
+- AdGuard
+- Google
+- Quad9
 
 ## 
 Notes : sometimes it helps to execute commands from adb.exe and not in the shell directly -> skip `adb shell` commands as parameters and only run direct command with `adb.exe <COMMAND>` 
