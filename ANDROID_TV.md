@@ -60,6 +60,30 @@ Shows your public IP ans DNS Servers.
 if you see `validated=true` for `dns.adguard-dns.com` the encrypted DoT connection is active
 
 
+## Reset Private DNS
+These commands restores previous settings and deleted the DNS specifier to default
+
+> `adb shell settings put global private_dns_mode opportunistic`
+
+> `adb shell settings delete global private_dns_specifier`
+
+
+#### Verify if settings was restored / deleted
+> `adb shell settings get global private_dns_mode`
+
+expected output:
+`opportunistic`
+
+
+then 
+> `adb shell settings get global private_dns_specifier`
+
+expected output:
+`null` - this means the cutoms hostname is no longer stored
+
+From here <b>restart the TV (`adb reboot`) or disconnect and reconnect</b> to wifi again
+
+
 ## DNS Server Providers
 - Cloudflare DoT (one.one.one.one) AS13335
 - NextDNS
